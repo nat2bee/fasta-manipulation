@@ -82,11 +82,11 @@ for seq_record in SeqIO.parse(fasta, "fasta"):
     
 for id in Ids:
     if keep == 1 and id in genes_seq:
-        fasta_format_string = SeqRecord(genes_seq[id], id=gene_id)
+        fasta_format_string = SeqRecord(genes_seq[id], id=id)
         outputfile.write(fasta_format_string.format("fasta"))
     elif exclude == 1 and id not in genes_seq:
         genes_seq[gene_id]= bases
-        fasta_format_string = SeqRecord(genes_seq[id], id=gene_id)
+        fasta_format_string = SeqRecord(genes_seq[id], id=id)
         outputfile.write(fasta_format_string.format("fasta"))
 
     
