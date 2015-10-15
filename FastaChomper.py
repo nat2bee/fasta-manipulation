@@ -80,15 +80,19 @@ for seq_record in SeqIO.parse(fasta, "fasta"):
     bases = (seq_record.seq)
     genes_seq[gene_id]= bases
     
-for id in Ids:
-    if keep == 1 and id in genes_seq:
-        fasta_format_string = SeqRecord(genes_seq[id], id=id)
-        outputfile.write(fasta_format_string.format("fasta"))
-    elif exclude == 1 and id not in genes_seq:
-        genes_seq[gene_id]= bases
-        fasta_format_string = SeqRecord(genes_seq[id], id=id)
-        outputfile.write(fasta_format_string.format("fasta"))
+## Open the fasta file and save the information the user wants
+for seq_record in SeqIO.parse(fasta, "fasta"):
+    gene_id = str(seq_record.id)
+    bases = (seq_record.seq)
+    genes_seq[gene_id]= bases
+    if exclude == 1 and gene_id not in Ids:
+            fasta_format_string = SeqRecord(bases, id=gene_id)
+            outputfile.write(fasta_format_string.format("fasta"))
 
+if keep == 1 :
+    for id in Ids:
+        fasta_format_string = SeqRecord(genes_seq[id], id=id)
+        outputfile.write(fasta_format_string.format("fasta"))
     
         
 outputfile.close()
