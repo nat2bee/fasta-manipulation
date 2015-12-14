@@ -69,30 +69,25 @@ for opt, arg in opts:
 
 ## Make a list of the transcript IDs to search
 for line in input1:
-    list = line.split()
-    id = list[0]
+    list = line.split("\n")
+    id = str(list[0])
     Ids.append(id)
 
 
-## Open the fasta file and save the information the user wants
-for seq_record in SeqIO.parse(fasta, "fasta"):
-    gene_id = seq_record.id
-    bases = (seq_record.seq)
-    genes_seq[gene_id]= bases
-    
 ## Open the fasta file and save the information the user wants
 for seq_record in SeqIO.parse(fasta, "fasta"):
     gene_id = str(seq_record.id)
     bases = (seq_record.seq)
     genes_seq[gene_id]= bases
     if exclude == 1 and gene_id not in Ids:
-            fasta_format_string = SeqRecord(bases, id=gene_id)
-            outputfile.write(fasta_format_string.format("fasta"))
-
+        fasta_format_string = SeqRecord(bases, id=gene_id)
+        outputfile.write(fasta_format_string.format("fasta"))
 if keep == 1 :
     for id in Ids:
         fasta_format_string = SeqRecord(genes_seq[id], id=id)
         outputfile.write(fasta_format_string.format("fasta"))
-    
+
+
+ 
         
 outputfile.close()
