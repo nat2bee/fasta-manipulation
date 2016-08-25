@@ -24,6 +24,8 @@ if exit == 1:
     for line in file:
         if line.startswith(">"):
             list = line.split()
+            list1 = list[0]
+            IDs = list1.split(">")
             ID = list[0]
             output.write(ID)
             output.write("\n")
