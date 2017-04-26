@@ -26,7 +26,9 @@ if exit == 1:
             list = line.split()
             list1 = list[0]
             IDs = list1.split(">")
-            ID = list[0]
-            output.write(ID)
+            ID1 = list[0]
+            ID_list = ID1.split(">")
+            ID2 = ID_list[1]
+            output.write(ID2)
             output.write("\n")
     output.close()
