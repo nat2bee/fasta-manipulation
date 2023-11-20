@@ -38,7 +38,7 @@ try:
 except getopt.GetoptError:
     print '\n', '####     Invalid use     ####', '\n'
     print 'Usage: FastaChomper.py <options> -f <fasta> -l <idlist> -o <output>'
-    print 'For help use ClustersSeq_Corset.py -h'
+    print 'For help use FastaChomper.py -h'
     sys.exit(99)
 
 for opt, arg in opts:
