@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 ####################################################################################### 
 #
 # Sub set only certain transcripts from a fasta file.
@@ -14,8 +16,6 @@
 # -e = Exclude the sequence of the Ids in the list
 # 
 #######################################################################################
-
-#!/usr/bin/python
 
 import sys, getopt
 from Bio import SeqIO
@@ -36,21 +36,21 @@ outputfile = ""
 try:
     opts, args = getopt.getopt(sys.argv[1:],"hief:l:o:",["fasta=","idlist=","output="])
 except getopt.GetoptError:
-    print '\n', '####     Invalid use     ####', '\n'
-    print 'Usage: FastaChomper.py <options> -f <fasta> -l <idlist> -o <output>'
-    print 'For help use FastaChomper.py -h'
+    print ('\n', '####     Invalid use     ####', '\n')
+    print ('Usage: FastaChomper.py <options> -f <fasta> -l <idlist> -o <output>')
+    print ('For help use FastaChomper.py -h')
     sys.exit(99)
 
 for opt, arg in opts:
     if opt == '-h':
-        print '\n', 'Sub set only certain transcripts from a fasta file.', '\n'
-        print 'Usage: FastaChomper.py <options> -f <fasta> -l <idlist> -o <output>', '\n'
-        print 'Where: fasta = the fasta file containing all the sequences'
-        print 'idlist = List of sequences IDs to keep or exclude from the fasta file. One per line.'
-        print 'output = Name of the output file' , '\n'
-        print 'Options:'
-        print '-i = Keep only the sequences of the Ids included in the list'
-        print '-e = Exclude the sequence of the Ids in the list'
+        print ('\n', 'Sub set only certain transcripts from a fasta file.', '\n')
+        print ('Usage: FastaChomper.py <options> -f <fasta> -l <idlist> -o <output>', '\n')
+        print ('Where: fasta = the fasta file containing all the sequences')
+        print ('idlist = List of sequences IDs to keep or exclude from the fasta file. One per line.')
+        print ('output = Name of the output file' , '\n')
+        print ('Options:')
+        print ('-i = Keep only the sequences of the Ids included in the list')
+        print ('-e = Exclude the sequence of the Ids in the list')
         sys.exit()
     elif opt == "-i":
         keep = 1
