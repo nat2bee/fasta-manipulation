@@ -36,18 +36,18 @@ outputfile = ""
 try:
     opts, args = getopt.getopt(sys.argv[1:],"hief:l:o:",["fasta=","idlist=","output="])
 except getopt.GetoptError:
-    print ('\n', '####     Invalid use     ####', '\n')
+    print ('\n####     Invalid use     ####\n')
     print ('Usage: FastaChomper.py <options> -f <fasta> -l <idlist> -o <output>')
     print ('For help use FastaChomper.py -h')
     sys.exit(99)
 
 for opt, arg in opts:
     if opt == '-h':
-        print ('\n', 'Sub set only certain transcripts from a fasta file.', '\n')
-        print ('Usage: FastaChomper.py <options> -f <fasta> -l <idlist> -o <output>', '\n')
+        print ('\nSub set only certain transcripts from a fasta file.\n')
+        print ('Usage: FastaChomper.py <options> -f <fasta> -l <idlist> -o <output>\n')
         print ('Where: fasta = the fasta file containing all the sequences')
         print ('idlist = List of sequences IDs to keep or exclude from the fasta file. One per line.')
-        print ('output = Name of the output file' , '\n')
+        print ('output = Name of the output file\n')
         print ('Options:')
         print ('-i = Keep only the sequences of the Ids included in the list')
         print ('-e = Exclude the sequence of the Ids in the list')
